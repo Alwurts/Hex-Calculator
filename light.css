@@ -16,6 +16,12 @@ body {
 
 .container {
   width: 370px;
+  position: absolute;
+  top: 52%;
+  left: 54%;
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+ 
 }
 
 .result-display {
