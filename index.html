@@ -1,14 +1,22 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Calculator</title>
-  <meta name="description" content="" />
+  <title>Hex Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="light.css" id="theme" />
+  <link rel="icon" href="./assets/hexagon-192.png">
+  <link rel="manifest" href="./manifest.json">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js');
+      });
+    }
+  </script>
 </head>
 <body>
   <center>
@@ -70,7 +78,7 @@
       
     </div>
   </center>
-  <script src="https://kit.fontawesome.com/f28b055962.js" crossorigin="anonymous"></script>
+  
   <script src="script.js" async defer></script>
 </body>
 </html>
