@@ -1,22 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html >
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Hex Calculator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="light.css" id="theme" />
+
+  <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+  <meta name="theme-color" content="black">
   <link rel="icon" href="./assets/hexagon-192.png">
+
   <link rel="manifest" href="./manifest.json">
+
+  <link rel="stylesheet" href="light.css" id="theme" />
+
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js');
-      });
+    
+    window.addEventListener('load', () => {
+      registerSW();
+    });
+ 
+    // Register the Service Worker
+    async function registerSW() {
+      if ('serviceWorker' in navigator) {
+        try {
+          await navigator
+                .serviceWorker
+                .register('serviceworker.js');
+        }
+        catch (e) {
+          console.log('SW registration failed');
+        }
+      }
     }
   </script>
+  
 </head>
 <body>
   <center>
