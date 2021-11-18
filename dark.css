@@ -17,18 +17,16 @@ body {
 .container {
   width: 370px;
   position: absolute;
-  top: 52%;
-  left: 54%;
+  top: 50%;
+  left: 50%;
   -ms-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
+ 
 }
 
-.result-display {
-  width: 76.5%;
-}
 
 input {
-  padding: 20px;
+  padding: 19px;
   color: rgb(255, 255, 255);
   font-size: 1em;
   cursor: pointer;
@@ -42,20 +40,48 @@ input {
   -o-border-radius: 4px;
 }
 
-.row {
+.result-display {
+  width: 76.5%;
+}
+
+.row-display {
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
 
-.row input[type="button"] {
-  width: 18.2%;
+.row-display input[type="button"] {
+  
+  width: 20%;
+  height: 60px;
   text-align: center;
 }
 
 input[type="text"] {
+  height: 65px;
+  width: 78.8%;
   background-color: rgb(47, 51, 50);
 }
+
+.hex-row input[type="button"] {
+  width: 15.7%;
+  text-align: center;
+}
+
+
+.row {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.row input[type="button"] {
+  
+  width: 19.1%;
+  text-align: center;
+}
+
+
+
 
 input[type="button"]:hover {
   background-color: rgb(160, 160, 160);
@@ -68,7 +94,3 @@ input[type="button"]:hover {
 }
 
 
-.hex-row input[type="button"] {
-  width: 15%;
-  text-align: center;
-}
