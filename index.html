@@ -44,34 +44,34 @@
   <div class="container">
 
     <div class="row-display">
-      <input type="button" value="HEX" onclick="clearScreen()" class="clear" />
-      <input type="text" name="result" class="result-display" id="result" value="" placeholder="Result" readonly />
+      <input type="button" value="HEX" onclick="switchMode('HEX')" class="clear" />
+      <input type="text" name="result-HEX" class="result-display" id="result-HEX" value="" placeholder="Result" readonly />
     </div>
     <div class="row-display">
-      <input type="button" value="OCT" onclick="clearScreen()" class="clear" />
-      <input type="text" name="result" class="result-display" id="result" value="" placeholder="Result" readonly />
+      <input type="button" value="OCT" onclick="switchMode('OCT')" class="clear" />
+      <input type="text" name="result-OCT" class="result-display" id="result-OCT" value="" placeholder="Result" readonly />
     </div>
     <div class="row-display">
-      <input type="button" value="DEC" onclick="clearScreen()" class="clear" />
-      <input type="text" name="result" class="result-display" id="result" value="" placeholder="Result" readonly />
+      <input type="button" value="DEC" onclick="switchMode('DEC')" class="clear" />
+      <input type="text" name="result-DEC" class="result-display" id="result-DEC" value="" placeholder="Result" readonly />
     </div>
     <div class="row-display">
-      <input type="button" value="BIN" onclick="clearScreen()" class="clear" />
-      <input type="text" name="result" class="result-display" id="result" value="" placeholder="Result" readonly />
+      <input type="button" value="BIN" onclick="switchMode('BIN')" class="clear" />
+      <input type="text" name="result-BIN" class="result-display" id="result-BIN" value="" placeholder="Result" readonly />
     
     </div>
     <div class="hex-row">
-      <input type="button" value="A" onclick="liveScreen(1)" id="one" />
-      <input type="button" value="B" onclick="liveScreen(2)" id="two" />
-      <input type="button" value="C" id="three" onclick="liveScreen(3)" />
-      <input type="button" value="D" onclick="liveScreen('+')" />
-      <input type="button" value="E" onclick="liveScreen('+')" />
-      <input type="button" value="F" onclick="liveScreen('+')" />
+      <input type="button" class="hex-button" value="A" onclick="liveScreen('A')" id="hex-A" />
+      <input type="button" class="hex-button" value="B" onclick="liveScreen('B')" id="hex-B" />
+      <input type="button" class="hex-button" value="C" onclick="liveScreen('C')" id="hex-C"/>
+      <input type="button" class="hex-button" value="D" onclick="liveScreen('D')" id="hex-D" />
+      <input type="button" class="hex-button" value="E" onclick="liveScreen('E')" id="hex-E" />
+      <input type="button" class="hex-button" value="F" onclick="liveScreen('F')" id="hex-F"/>
     </div>
     <div class="row">
-      <input type="button" value="1" onclick="liveScreen(1)" id="one" />
-      <input type="button" value="2" onclick="liveScreen(2)" id="two" />
-      <input type="button" value="3" id="three" onclick="liveScreen(3)" />
+      <input type="button" value="7" onclick="liveScreen(7)" id="one" />
+      <input type="button" value="8" onclick="liveScreen(8)" id="two" />
+      <input type="button" value="9" id="three" onclick="liveScreen(9)" />
       <input type="button" value="del" onclick="clearScreen()" />
       <input type="button" value="c" onclick="clearScreen()" />
     </div>
@@ -83,14 +83,14 @@
       <input type="button" value="/" onclick="liveScreen('/')" />
     </div>
     <div class="row">
-      <input type="button" value="7" id="seven" onclick="liveScreen(7)" />
-      <input type="button" value="8" id="eight" onclick="liveScreen(8)" />
-      <input type="button" value="9" id="nine" onclick="liveScreen(9)" />
+      <input type="button" value="1" id="seven" onclick="liveScreen(1)" />
+      <input type="button" value="2" id="eight" onclick="liveScreen(2)" />
+      <input type="button" value="3" id="nine" onclick="liveScreen(3)" />
       <input type="button" value="+" onclick="liveScreen('+')" />
       <input type="button" value="-" onclick="liveScreen('-')" />
     </div>
     <div class="row">
-      <input type="button" value="/" onclick="switchTheme()" />
+      <input type="button" value="🌙" onclick="switchTheme() " id="dark-mode" />
       <input type="button" value="0" id="zero" onclick="liveScreen(0)" />
       <input type="button" value="+-" class="dot" onclick="clearScreen()" />
       <input type="button" value="=" onclick="result.value = calcString(result.value)" />
@@ -99,7 +99,6 @@
     
   </div>
 
-  
   <script src="script.js" async defer></script>
 </body>
 </html>

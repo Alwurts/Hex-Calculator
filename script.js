@@ -1,23 +1,51 @@
+let mode = "HEX"
+
 // Clears the screen on click of C button.
 function clearScreen() {
     document.getElementById("result").value = "";
-  }
+}
+
+
   // Displays the entered value on screen.
-  function liveScreen(value) {
+function liveScreen(value) {
     document.getElementById("result").value += value;
-  }
+}
+
+
+
   // Swaps the style sheet in order to  achieve dark mode.
-  function switchTheme() {
-    let darkMode = document.getElementById("dark-mode");
-    let theme = document.getElementById("theme");
-    if (theme.getAttribute("href") == "light.css") {
-      theme.href = "dark.css";
-      darkMode.innerHTML = "Light Mode 🌙";
-    } else {
-      theme.href = "light.css";
-      darkMode.innerHTML = "Dark Mode 🌙";
-    }
+function switchTheme() {
+  let darkMode = document.getElementById("dark-mode");
+  let theme = document.getElementById("theme");
+  if (theme.getAttribute("href") == "light.css") {
+    theme.href = "dark.css";
+    darkMode.value = "☀️";
+  } else {
+    theme.href = "light.css";
+    darkMode.value = "🌙";
+    
   }
+  console.log(mode)
+}
+
+function switchMode(received_mode) {
+  mode = received_mode
+  let hex_buttons = document.getElementsByClassName("hex-button");
+  if (mode == 'HEX'){
+    console.log(received_mode)
+  } else if (mode == 'OCT') {
+    console.log(received_mode)
+  } else if (mode == 'DEC') {
+    for (var i = 0; i < hex_buttons.length ;i++){
+      hex_buttons[i].disabled = true
+      // Need to change css style to show disabled
+    }
+
+  } else if (mode == 'BIN') {
+    console.log(received_mode)
+  }
+
+}
 
 // Turns a string equation into a value eg '2*2 + 4' will return '8'
 function calcString(input) {

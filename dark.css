@@ -58,7 +58,7 @@ input {
 }
 
 input[type="text"] {
-  height: 65px;
+  height: 60px;
   width: 78.8%;
   background-color: rgb(47, 51, 50);
 }
