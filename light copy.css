@@ -7,15 +7,14 @@
 }
 body {
   background-color: rgb(235, 235, 235);
-  transition: 0.7s;
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -ms-transition: 0.7s;
-  -o-transition: 0.7s;
+  transition: 0.8s;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  -ms-transition: 0.8s;
+  -o-transition: 0.8s;
 }
 
-/* Main container styling */
-.calculator {
+.container {
   width: 370px;
   position: absolute;
   top: 50%;
@@ -25,8 +24,8 @@ body {
  
 }
 
-/* Main style for all input types */
-input { 
+
+input {
   padding: 19px;
   color: rgb(17, 16, 16);
   font-size: 1em;
@@ -41,70 +40,54 @@ input {
   -o-border-radius: 4px;
 }
 
+.result-display {
+  width: 76.5%;
+}
 
-
-/* RESULTS */
-.results-row {
+.row-display {
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
-.results-textbox {
-  height: 60px;
-  width: 78.8%;
-  background-color: rgb(255, 255, 255);
-}
 
-.results-button {
+
+.row-display input[type="button"] {
   width: 20%;
   height: 60px;
   text-align: center;
 }
 
-.red-outline {
-  border: solid;
-  border-color: rgb(255, 42, 42);
+input[type="text"] {
+  height: 60px;
+  width: 78.8%;
+  background-color: rgb(255, 255, 255);
 }
 
-.red {
-  background-color: rgb(255, 42, 42);
-}
-
-.gray {
-  background-color: rgb(47, 51, 50);
-}
-/* RESULTS */
-
-
-/* Buttons for the hex row */ 
 .hex-row input[type="button"] {
   width: 15.7%;
   text-align: center;
 }
 
-
-.pent-row {
+.row {
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
-.pent-row input[type="button"] {
+.row input[type="button"] {
+  
   width: 19%;
   text-align: center;
 }
 
-/* Only hover on devices that are not touch*/
-@media (hover: hover){
-  input[type="button"]:hover {
-    background-color: rgb(37, 35, 59);
-    color: #fff;
-  }
+input[type="button"]:hover {
+  background-color: rgb(37, 35, 59);
+  color: #fff;
 }
 
-
-
-
-
+.clear {
+  color: #fff;
+  background-color: rgb(255, 42, 42);
+}
 
 
 

@@ -2,13 +2,35 @@ let mode = "HEX"
 
 // Clears the screen on click of C button.
 function clearScreen() {
-    document.getElementById("result").value = "";
+    document.getElementById("result-HEX").value = "";
+    document.getElementById("result-DEC").value = "";
+    document.getElementById("result-OCT").value = "";
+    document.getElementById("result-BIN").value = "";
 }
 
 
   // Displays the entered value on screen.
-function liveScreen(value) {
-    document.getElementById("result").value += value;
+function putText(value) {
+  
+  document.getElementById("result-HEX").value += value;
+  document.getElementById("result-DEC").value += value;
+  document.getElementById("result-OCT").value += value;
+  document.getElementById("result-BIN").value += value;
+  
+}
+
+function deleteChar (){
+  document.getElementById("result-HEX").value = 
+    document.getElementById("result-HEX").value.substring(0, document.getElementById("result-HEX").value.length - 1);
+
+  document.getElementById("result-DEC").value = 
+    document.getElementById("result-DEC").value.substring(0, document.getElementById("result-DEC").value.length - 1);
+
+  document.getElementById("result-OCT").value = 
+    document.getElementById("result-OCT").value.substring(0, document.getElementById("result-OCT").value.length - 1);
+
+  document.getElementById("result-BIN").value = 
+    document.getElementById("result-BIN").value.substring(0, document.getElementById("result-BIN").value.length - 1);
 }
 
 
@@ -26,11 +48,41 @@ function switchTheme() {
     
   }
   console.log(mode)
+
+  updateModeColor();
+}
+
+function updateModeColor(){
+  if (theme.getAttribute("href") == "light.css") {
+    var color_change = "#fff"
+  } else {
+    var color_change = "rgb(47, 51, 50)"
+    
+  }
+
+  document.getElementById("btn-result-HEX").style.backgroundColor = color_change;
+  document.getElementById("btn-result-DEC").style.backgroundColor = color_change;
+  document.getElementById("btn-result-OCT").style.backgroundColor = color_change;
+  document.getElementById("btn-result-BIN").style.backgroundColor = color_change;
+
+  document.getElementById("result-HEX").style.border = "none";
+  document.getElementById("result-DEC").style.border = "none";
+  document.getElementById("result-OCT").style.border = "none";
+  document.getElementById("result-BIN").style.border = "none";
+
+  document.getElementById("btn-result-" + mode).style.backgroundColor = "rgb(255, 42, 42)";
+  document.getElementById("result-" + mode).style.border = "solid";
+  document.getElementById("result-" + mode).style.borderColor = "rgb(255, 42, 42)";
+  
 }
 
 function switchMode(received_mode) {
-  mode = received_mode
-  let hex_buttons = document.getElementsByClassName("hex-button");
+  mode = received_mode;
+  let hex_buttons = document.getElementsByClassName("button-HEX");
+
+  updateModeColor();
+  
+
   if (mode == 'HEX'){
     console.log(received_mode)
   } else if (mode == 'OCT') {
@@ -40,7 +92,7 @@ function switchMode(received_mode) {
       hex_buttons[i].disabled = true
       // Need to change css style to show disabled
     }
-
+    console.log(received_mode)
   } else if (mode == 'BIN') {
     console.log(received_mode)
   }

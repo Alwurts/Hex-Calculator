@@ -17,13 +17,14 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
 
+  <!-- Service worker -->
   <script>
-    
+    // Event listener to load the serviceworker
     window.addEventListener('load', () => {
       registerSW();
     });
  
-    // Register the Service Worker
+    // Service worker for pwa functionality
     async function registerSW() {
       if ('serviceWorker' in navigator) {
         try {
@@ -37,8 +38,9 @@
       }
     }
   </script>
+  <!-- Service worker -->
 
-   <!-- Global Site Tag (gtag.js) - Google Analytics -->
+   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BX6V389K3R"></script>
 
   <script>
@@ -47,61 +49,62 @@
     gtag('js', new Date());
     gtag('config', 'G-BX6V389K3R');
   </script>
+  <!-- Google Analytics -->
   
 </head>
 <body>
   
-  <div class="container">
+  <div class="calculator">
 
-    <div class="row-display">
-      <input type="button" value="HEX" onclick="switchMode('HEX')" class="clear" />
-      <input type="text" name="result-HEX" class="result-display" id="result-HEX" value="" placeholder="Result" readonly />
+    <div class="results-row">
+      <input type="button" value="HEX" onclick="switchMode('HEX')" class="results-button" id="btn-result-HEX" />
+      <input type="text" name="result-HEX" class="results-textbox" id="result-HEX" value="" placeholder="0x0000" readonly />
     </div>
-    <div class="row-display">
-      <input type="button" value="OCT" onclick="switchMode('OCT')" class="clear" />
-      <input type="text" name="result-OCT" class="result-display" id="result-OCT" value="" placeholder="Result" readonly />
+    <div class="results-row">
+      <input type="button" value="DEC" onclick="switchMode('DEC')" class="results-button red" id="btn-result-DEC" />
+      <input type="text" name="result-DEC" class="results-textbox red-outline" id="result-DEC" value="" placeholder="0000" readonly />
     </div>
-    <div class="row-display">
-      <input type="button" value="DEC" onclick="switchMode('DEC')" class="clear" />
-      <input type="text" name="result-DEC" class="result-display" id="result-DEC" value="" placeholder="Result" readonly />
+    <div class="results-row">
+      <input type="button" value="OCT" onclick="switchMode('OCT')" class="results-button" id="btn-result-OCT" />
+      <input type="text" name="result-OCT" class="results-textbox" id="result-OCT" value="" placeholder="0000" readonly />
     </div>
-    <div class="row-display">
-      <input type="button" value="BIN" onclick="switchMode('BIN')" class="clear" />
-      <input type="text" name="result-BIN" class="result-display" id="result-BIN" value="" placeholder="Result" readonly />
-    
+    <div class="results-row">
+      <input type="button" value="BIN" onclick="switchMode('BIN')" class="results-button" id="btn-result-BIN" />
+      <input type="text" name="result-BIN" class="results-textbox" id="result-BIN" value="" placeholder="0b0000" readonly />
     </div>
+
     <div class="hex-row">
-      <input type="button" class="hex-button" value="A" onclick="liveScreen('A')" id="hex-A" />
-      <input type="button" class="hex-button" value="B" onclick="liveScreen('B')" id="hex-B" />
-      <input type="button" class="hex-button" value="C" onclick="liveScreen('C')" id="hex-C"/>
-      <input type="button" class="hex-button" value="D" onclick="liveScreen('D')" id="hex-D" />
-      <input type="button" class="hex-button" value="E" onclick="liveScreen('E')" id="hex-E" />
-      <input type="button" class="hex-button" value="F" onclick="liveScreen('F')" id="hex-F"/>
+      <input type="button" class="button-HEX" value="A" onclick="putText('A')" id="hex-A" />
+      <input type="button" class="button-HEX" value="B" onclick="putText('B')" id="hex-B" />
+      <input type="button" class="button-HEX" value="C" onclick="putText('C')" id="hex-C"/>
+      <input type="button" class="button-HEX" value="D" onclick="putText('D')" id="hex-D" />
+      <input type="button" class="button-HEX" value="E" onclick="putText('E')" id="hex-E" />
+      <input type="button" class="button-HEX" value="F" onclick="putText('F')" id="hex-F"/>
     </div>
-    <div class="row">
-      <input type="button" value="7" onclick="liveScreen(7)" id="one" />
-      <input type="button" value="8" onclick="liveScreen(8)" id="two" />
-      <input type="button" value="9" id="three" onclick="liveScreen(9)" />
-      <input type="button" value="del" onclick="clearScreen()" />
+    <div class="pent-row">
+      <input type="button" class="button-DEC" value="7" onclick="putText(7)" id="one" />
+      <input type="button" class="button-OCT" value="8" onclick="putText(8)" id="two" />
+      <input type="button" class="button-OCT" value="9" id="three" onclick="putText(9)" />
+      <input type="button" value="del" onclick="deleteChar()" />
       <input type="button" value="c" onclick="clearScreen()" />
     </div>
-    <div class="row">
-      <input type="button" value="4" id="four" onclick="liveScreen(4)" />
-      <input type="button" value="5" id="five" onclick="liveScreen(5)" />
-      <input type="button" value="6" id="six" onclick="liveScreen(6)" />
-      <input type="button" value="x" onclick="liveScreen('*')" />
-      <input type="button" value="/" onclick="liveScreen('/')" />
+    <div class="pent-row">
+      <input type="button" class="button-DEC" value="4" id="four" onclick="putText(4)" />
+      <input type="button" class="button-DEC" value="5" id="five" onclick="putText(5)" />
+      <input type="button" class="button-DEC" value="6" id="six" onclick="putText(6)" />
+      <input type="button" value="x" onclick="putText('*')" />
+      <input type="button" value="/" onclick="putText('/')" />
     </div>
-    <div class="row">
-      <input type="button" value="1" id="seven" onclick="liveScreen(1)" />
-      <input type="button" value="2" id="eight" onclick="liveScreen(2)" />
-      <input type="button" value="3" id="nine" onclick="liveScreen(3)" />
-      <input type="button" value="+" onclick="liveScreen('+')" />
-      <input type="button" value="-" onclick="liveScreen('-')" />
+    <div class="pent-row">
+      <input type="button" class="button-BIN" value="1" id="seven" onclick="putText(1)" />
+      <input type="button" class="button-DEC" value="2" id="eight" onclick="putText(2)" />
+      <input type="button" class="button-DEC" value="3" id="nine" onclick="putText(3)" />
+      <input type="button" value="+" onclick="putText('+')" />
+      <input type="button" value="-" onclick="putText('-')" />
     </div>
-    <div class="row">
+    <div class="pent-row">
       <input type="button" value="☀️" onclick="switchTheme() " id="dark-mode" />
-      <input type="button" value="0" id="zero" onclick="liveScreen(0)" />
+      <input type="button" class="button-BIN" value="0" id="zero" onclick="putText(0)" />
       <input type="button" value="+-" class="dot" onclick="clearScreen()" />
       <input type="button" value="=" onclick="result.value = calcString(result.value)" />
       <input type="button" value="?" class="dot" onclick="clearScreen()" />
@@ -110,5 +113,6 @@
   </div>
 
   <script src="script.js" async defer></script>
+  
 </body>
 </html>
