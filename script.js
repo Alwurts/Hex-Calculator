@@ -39,9 +39,6 @@ function deleteChar (){
 function switchTheme() {
   let darkMode = document.getElementById("dark-mode");
   let theme = document.getElementById("theme");
-  
-  updateModeColor();
-
   if (theme.getAttribute("href") == "light.css") {
     darkMode.value = "☀️";
     theme.href = "dark.css";
@@ -52,7 +49,7 @@ function switchTheme() {
   }
   console.log(mode)
 
-  
+  updateModeColor();
 }
 
 function updateModeColor(){
