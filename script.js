@@ -1,6 +1,8 @@
 let mode = "HEX";
 let mode_value = "";
+
 let memory_value = "";
+let memory_mode = "";
 let memory_operation = "";
 
 
@@ -27,11 +29,14 @@ function switchTheme() {
 
 // Clears the screen on click of C button.
 function clearScreen() {
-    document.getElementById("result-HEX").value = "";
-    document.getElementById("result-DEC").value = "";
-    document.getElementById("result-OCT").value = "";
-    document.getElementById("result-BIN").value = "";
-    mode_value = ""
+  document.getElementById("result-HEX").value = "";
+  document.getElementById("result-DEC").value = "";
+  document.getElementById("result-OCT").value = "";
+  document.getElementById("result-BIN").value = "";
+  mode_value = "";
+  memory_value = "";
+  memory_mode = "";
+  memory_operation = "";
 }
 
 function get_mode_value_dec (){
@@ -43,6 +48,18 @@ function get_mode_value_dec (){
     return parseInt(mode_value, 8);
   } else if (mode == 'BIN'){
     return parseInt(mode_value, 2);
+  } 
+}
+
+function get_memory_mode_value_dec (){
+  if (memory_mode == 'HEX'){
+    return parseInt(memory_value, 16);
+  } else if (memory_mode == 'DEC'){
+    return parseInt(memory_value, 10);
+  } else if (memory_mode == 'OCT'){
+    return parseInt(memory_value, 8);
+  } else if (memory_mode == 'BIN'){
+    return parseInt(memory_value, 2);
   } 
 }
 
@@ -186,21 +203,55 @@ function switchMode(received_mode) {
 }
 
 function operation (operation_type) {
-  if (memory_value == "") {
+ 
+  if (mode_value != "" && memory_value == "") {
     memory_value = mode_value;
     memory_operation = operation_type;
-    clearScreen();
+    memory_mode = mode;
+    
+    mode_value = "";
+    
+  } else if (mode_value== "" && memory_value != "") {
+    memory_operation = operation_type;
   } else {
-
+    equals()
+    memory_value = "";
+    memory_mode = "";
+    memory_operation = "";
   }
   
-  console.log(memory_value);
+  console.log(memory_value + operation_type + memory_mode);
+
 }
 
-function evaluate(){
-  if (memory_value != "") {
-    memory_value = mode_value;
-    memory_operation = operation_type;
-    clearScreen();
+function equals(){
+  if (memory_value != "" && mode_value != "") {
+
+    if (memory_operation == 'x'){
+      var temp = get_memory_mode_value_dec() * get_mode_value_dec();
+    } else if (memory_operation == '/'){
+      var temp = get_memory_mode_value_dec() / get_mode_value_dec();
+    } else if (memory_operation == '+'){
+      var temp = get_memory_mode_value_dec() + get_mode_value_dec();
+    } else if (memory_operation == '-'){
+      var temp = get_memory_mode_value_dec() - get_mode_value_dec();
+    } 
+
+    
+    temp = parseInt(temp, 10);// Round the value by converting it to int
+
+    if (mode == 'HEX'){
+      mode_value = temp.toString(16).toUpperCase();
+    } else if (mode == 'DEC'){
+      mode_value = temp.toString(10);
+    } else if (mode == 'OCT'){
+      mode_value = temp.toString(8);
+    } else if (mode == 'BIN'){
+      mode_value = temp.toString(2);
+    }
+
+    console.log(mode_value);
+    populate_results();
+   
   }
 }

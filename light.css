@@ -1,6 +1,3 @@
-@import "~bootstrap/scss/_variables.scss";
-
-
 
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -12,7 +9,9 @@
 
 .calculator {
   background-color: #e9ecef;
+  
 }
+
 
 .results input{
   background-color:#FFF !important;
