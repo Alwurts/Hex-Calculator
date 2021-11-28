@@ -25,13 +25,13 @@
 
 
 .input-active{
-  border-color: crimson !important;
+  border-color: rgb(240, 33, 33) !important;
   
 }
 
 
 .button-active{
-  background-color: crimson !important;
+  background-color: rgb(240, 33, 33) !important;
 }
 
 button:disabled {
