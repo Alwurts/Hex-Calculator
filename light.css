@@ -1,109 +1,52 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  font-weight: bold;
-}
-body {
-  background-color: rgb(235, 235, 235);
-  transition: 0.7s;
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -ms-transition: 0.7s;
-  -o-transition: 0.7s;
+@import "~bootstrap/scss/_variables.scss";
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
 
-/* Main container styling */
 .calculator {
-  width: 370px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
- 
+  background-color: #e9ecef;
 }
 
-/* Main style for all input types */
-input { 
-  padding: 19px;
-  color: rgb(17, 16, 16);
-  font-size: 1em;
-  cursor: pointer;
-  background-color: #fff;
-  border: none;
-  outline: none;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
+.results input{
+  background-color:#FFF !important;
+  border-width: 2px;
+  border-color: rgb(199, 199, 199);
+}
+
+.results input:focus {
+  border-color: rgb(199, 199, 199);
+  box-shadow: none;
 }
 
 
-
-/* RESULTS */
-.results-row {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-.results-textbox {
-  height: 60px;
-  width: 78.8%;
-  background-color: rgb(255, 255, 255);
-}
-
-.results-button {
-  width: 20%;
-  height: 60px;
-  text-align: center;
-}
-
-.red-outline {
-  border: solid;
-  border-color: rgb(255, 42, 42);
-}
-
-.red {
-  background-color: rgb(255, 42, 42);
-}
-
-.gray {
-  background-color: rgb(47, 51, 50);
-}
-/* RESULTS */
-
-
-/* Buttons for the hex row */ 
-.hex-row input[type="button"] {
-  width: 15.7%;
-  text-align: center;
+.input-active{
+  border-color: crimson !important;
+  
 }
 
 
-.pent-row {
-  margin-bottom: 10px;
-  margin-top: 10px;
+.button-active{
+  background-color: crimson !important;
 }
 
-.pent-row input[type="button"] {
-  width: 19%;
-  text-align: center;
+button:disabled {
+  background-color: transparent !important;
+  border-width: 0px;
+  
+} 
+
+.action-button {
+  background-color: rgba(187, 187, 187, 0.555) !important;
 }
 
-/* Only hover on devices that are not touch*/
-@media (hover: hover){
-  input[type="button"]:hover {
-    background-color: rgb(37, 35, 59);
-    color: #fff;
-  }
+.equals-button {
+  background-color: rgb(255, 166, 0) !important;
 }
-
-
-
-
 
 
 
