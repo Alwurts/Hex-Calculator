@@ -1,5 +1,7 @@
-let mode = "HEX"
-let mode_value = ""
+let mode = "HEX";
+let mode_value = "";
+let memory_value = "";
+let memory_operation = "";
 
 
 
@@ -12,17 +14,21 @@ function clearScreen() {
     mode_value = ""
 }
 
+function get_mode_value_dec (){
+  if (mode == 'HEX'){
+    return parseInt(mode_value, 16);
+  } else if (mode == 'DEC'){
+    return parseInt(mode_value, 10);
+  } else if (mode == 'OCT'){
+    return parseInt(mode_value, 8);
+  } else if (mode == 'BIN'){
+    return parseInt(mode_value, 2);
+  } 
+}
+
 function populate_results (){
   
-  if (mode == 'HEX'){
-    var dec_value = parseInt(mode_value, 16);
-  } else if (mode == 'DEC'){
-    var dec_value = parseInt(mode_value, 10);
-  } else if (mode == 'OCT'){
-    var dec_value = parseInt(mode_value, 8);
-  } else if (mode == 'BIN'){
-    var dec_value = parseInt(mode_value, 2);
-  }  
+  var dec_value = get_mode_value_dec();
 
   if (Number.isNaN(dec_value) == false) {
 
@@ -54,7 +60,8 @@ function putText(received_value) {
 }
 
 function deleteChar (){
-  console.log(mode_value)
+
+  
   if (mode_value != ""){
     mode_value = mode_value.substring(0,mode_value.length - 1)
 
@@ -67,15 +74,7 @@ function deleteChar (){
 function switchMode(received_mode) {
 
   // When switching change the mode_value to the new mode
-  if (mode == 'HEX'){
-    var dec_value = parseInt(mode_value, 16);
-  } else if (mode == 'DEC'){
-    var dec_value = parseInt(mode_value, 10);
-  } else if (mode == 'OCT'){
-    var dec_value = parseInt(mode_value, 8);
-  } else if (mode == 'BIN'){
-    var dec_value = parseInt(mode_value, 2);
-  } 
+  var dec_value = get_mode_value_dec();
 
   if (received_mode == 'HEX'){
     mode_value = dec_value.toString(16).toUpperCase();
@@ -164,99 +163,24 @@ function switchMode(received_mode) {
     }
 
   }
-  console.log("Mode  value after switching: " + mode_value)
-
 }
 
-// Turns a string equation into a value eg '2*2 + 4' will return '8'
-function calcString(input) {
-    const values = input.split("");
-    const out = [];
-    const ops = [];
-    const allOps = ["*", "/", "+", "-", ")", "("];
+function operation (operation_type) {
+  if (memory_value == "") {
+    memory_value = mode_value;
+    memory_operation = operation_type;
+    clearScreen();
+  } else {
 
-    let num = "";
-    for(let index = 0; index < values.length; index++){
-    const v = values[index];
-        if(v === " ") {
-          continue;
-        }
-      if(!allOps.includes(v)){
-        while(!allOps.includes(values[index]) && values[index] !== " " && index < values.length){
-          num += values[index];
-                 index ++;
-        }
-        index--;
-      out.push(num);
-      num = "";
-        continue;
-      }          
-
-            if (v === ")"){
-                let top = ops.pop();
-
-                while(top !== "(" && ops.length) {
-                    out.push(top);
-                    top = ops.pop();
-
-                }
-                if(top !== "("){
-                    return "Mismatched parens"
-                }
-              continue;
-            }
-            if(ops.length && v !== "(") {
-                let top = ops[ops.length - 1];
-                let topP = getPrecedence(top);
-                const currP = getPrecedence(v);
-
-              while(currP >= topP && top !== "(" && ops.length) {
-
-                out.push(top)
-                ops.pop();
-                top = ops[ops.length - 1];
-                topP = getPrecedence(top);
-
-              }
-
-            } 
-            ops.push(v);
-
-
-    }
-    while(ops.length) {
-            out.push(ops.pop());
-    }
-    const stack = [];
-    out.forEach((o)=>{
-      if(!allOps.includes(o)){
-        stack.push(parseFloat(o, 10));
-      } else {
-        const r = stack.pop();
-        const l = stack.pop();
-        switch(o) {
-          case "+":
-            stack.push(l+r);
-            break;
-          case "-":
-            stack.push(l-r);
-            break;
-          case "*":
-            stack.push(l*r);
-            break;
-          case "/":
-            stack.push(l/r);
-            break;
-        }
-      }
-    })
-
-  return ""+stack[0]
-
+  }
+  
+  console.log(memory_value);
 }
-function getPrecedence(value) {
-    const precedence = [["("], ["*", "/"], ["+", "-"]];
-    return precedence.findIndex((p)=> {
-        return p.includes(value);
-    })
+
+function evaluate(){
+  if (memory_value != "") {
+    memory_value = mode_value;
+    memory_operation = operation_type;
+    clearScreen();
+  }
 }
