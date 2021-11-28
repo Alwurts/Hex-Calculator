@@ -1,0 +1,56 @@
+@import "~bootstrap/scss/_variables.scss";
+
+
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.calculator {
+  background-color: #292929;
+}
+
+.results input{
+  background-color:#212529 !important;
+  border-width: 2px;
+  border-color: rgb(59, 59, 59);
+  color: white !important;
+}
+
+.results input:focus {
+  border-color: rgb(199, 199, 199);
+  box-shadow: none;
+}
+
+
+.input-active{
+  border-color: rgb(240, 33, 33) !important;
+  
+}
+
+
+.button-active{
+  background-color: rgb(240, 33, 33) !important;
+}
+
+button:disabled {
+  background-color: transparent !important;
+  border-width: 0px;
+  
+} 
+
+.action-button {
+  background-color: rgb(66, 66, 66) !important;
+}
+
+.equals-button {
+  background-color: rgb(255, 166, 0) !important;
+}
+
+
+
+

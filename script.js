@@ -4,6 +4,26 @@ let memory_value = "";
 let memory_operation = "";
 
 
+function switchTheme() {
+  let theme = document.getElementById("theme");
+  if (theme.getAttribute("href") == "light.css") {
+    theme.href = "dark.css";
+
+    let dark_btns = document.getElementsByClassName("btn")
+    for (var i = 0; i < dark_btns.length ;i++){
+      dark_btns[i].classList.remove("btn-light");
+      dark_btns[i].classList.add("btn-dark");
+    }
+    
+  } else {
+    theme.href = "light.css";
+    let dark_btns = document.getElementsByClassName("btn")
+    for (var i = 0; i < dark_btns.length ;i++){
+      dark_btns[i].classList.remove("btn-dark");
+      dark_btns[i].classList.add("btn-light");
+    }
+  }
+}
 
 // Clears the screen on click of C button.
 function clearScreen() {
