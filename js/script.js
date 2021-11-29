@@ -79,17 +79,17 @@ function getInputValueConvertStr () {
 function putChar(receivedNumber) {
   if (operationState == 0 || operationState == 1 || operationState == 3){
     inputValueStr += receivedNumber;
-    console.log(inputValueStr);
-    console.log(memory);
+    //console.log(inputValueStr);
+    //console.log(memory);
     showInputValue();
     if (operationState == 0){operationState++;}
-    console.log("Operation state: " + operationState);
+    //console.log("Operation state: " + operationState);
   } else if (operationState == 2){
     inputValueStr = "";
     inputValueStr += receivedNumber;
     showInputValue();
     operationState++;
-    console.log("Operation state: " + operationState);
+    //console.log("Operation state: " + operationState);
   } else if (operationState == 4) {
     clearScreen();
     putChar(receivedNumber);
@@ -135,7 +135,7 @@ function deleteChar (){
   
   if (operationState == 1 || operationState == 3){
     inputValueStr = inputValueStr.substring(0,inputValueStr.length - 1)
-    //console.log(inputValueStr)
+    ////console.log(inputValueStr)
     showInputValue()
   } else if (operationState == 2) {
     removeLastCharOnlyInDisplays();
@@ -145,7 +145,7 @@ function deleteChar (){
     clearScreen();
   }
 
-  console.log("Operation state: " + operationState);
+  //console.log("Operation state: " + operationState);
   
 }
 
@@ -234,7 +234,7 @@ function switchMode(received_mode) {
   convertInputToMode(received_mode);
 
 
-  console.log(inputMode);
+  //console.log(inputMode);
 
 }
 
@@ -275,13 +275,13 @@ function operation (operationType) {
     memory["operation"] = operationType;
     putCharOnlyInDisplays(operationType);
     storeInputToMemory();
-    console.log(memory);
+    //console.log(memory);
     operationState++;
   } else if (operationState == 2){
     memory["operation"] = operationType;
     removeLastCharOnlyInDisplays();
     putCharOnlyInDisplays(operationType);
-    console.log(memory);
+    //console.log(memory);
   } else if (operationState == 3){
     equals();
     storeInputToMemory();
@@ -290,24 +290,24 @@ function operation (operationType) {
 
     operationState = 2;
 
-    console.log(memory);
+    //console.log(memory);
   } else if (operationState == 4){
     memory["operation"] = operationType;
     putCharOnlyInDisplays(operationType);
     storeInputToMemory();
-    console.log(memory);
+    //console.log(memory);
     operationState = 2;
   }
-  console.log("Operation state: " + operationState);
+  //console.log("Operation state: " + operationState);
 
 }
 
 function equals(){
 
-  console.log("Input Value: " + inputValueStr);
-  console.log("Memory: ");
-  console.log(memory);
-  console.log("Operation state: " + operationState);
+  //console.log("Input Value: " + inputValueStr);
+  //console.log("Memory: ");
+  //console.log(memory);
+  //console.log("Operation state: " + operationState);
 
   if (operationState == 3) {
     if (memory["operation"] == 'x'){
@@ -336,10 +336,10 @@ function equals(){
     showInputValue();
 
     clearMemory();
-    console.log(inputValueStr);
+    //console.log(inputValueStr);
 
     operationState++; // stage 4
-    console.log("Operation state: " + operationState);
+    //console.log("Operation state: " + operationState);
   }
 }
 
