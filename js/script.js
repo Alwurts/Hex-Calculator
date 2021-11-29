@@ -1,22 +1,4 @@
 
-// Event listener to load the serviceworker
-window.addEventListener('load', () => {
-  registerSW();
-});
-
-// Service worker for pwa functionality
-async function registerSW() {
-  if ('serviceWorker' in navigator) {
-    try {
-      await navigator
-            .serviceWorker
-            .register('serviceworker.js');
-    }
-    catch (e) {
-      console.log('SW registration failed');
-    }
-  }
-}
 
 
 
