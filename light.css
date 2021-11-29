@@ -49,6 +49,7 @@ button:disabled {
   background-color: rgb(255, 166, 0) !important;
 }
 
+a { color: inherit; } 
 
 
 
