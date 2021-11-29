@@ -3,7 +3,7 @@
   "short_name": "Hex Calc",
   "start_url": "index.html",
   "scope": ".",
-  "description":"Hexadecimal calculator.",
+  "description":"Hexadecimal converter and calculator.",
 
   "icons": [
     {
