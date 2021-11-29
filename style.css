@@ -1,6 +1,3 @@
-@import "~bootstrap/scss/_variables.scss";
-
-
 
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -10,11 +7,16 @@
   align-items: center;
 }
 
-.calculator {
-  background-color: #292929;
-}
+.background-light {background-color: #e9ecef;}
+.background-dark {background-color: #292929;}
 
-.results input{
+
+.input-light input{
+  background-color:#FFF !important;
+  border-width: 2px;
+  border-color: rgb(199, 199, 199);
+}
+.input-dark input{
   background-color:#212529 !important;
   border-width: 2px;
   border-color: rgb(59, 59, 59);
@@ -43,14 +45,14 @@ button:disabled {
   
 } 
 
-.action-button {
-  background-color: rgb(66, 66, 66) !important;
-}
+.action-light {background-color: rgba(187, 187, 187, 0.555) !important;}
+.action-dark {background-color: rgb(66, 66, 66) !important;}
 
 .equals-button {
   background-color: rgb(255, 166, 0) !important;
 }
 
+a { color: inherit; } 
 
-a { color: rgb(199, 199, 199); } 
+
 

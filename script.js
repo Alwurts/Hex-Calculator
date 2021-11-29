@@ -1,3 +1,5 @@
+let theme = "light";
+
 let inputMode = "HEX"; // Current input input mode
 let inputValueStr = ""; // Value in the current mode STRING
 
@@ -322,22 +324,42 @@ function equals(){
 
 
 function switchTheme() {
-  let theme = document.getElementById("theme");
-  if (theme.getAttribute("href") == "light.css") {
-    theme.href = "dark.css";
-
-    let dark_btns = document.getElementsByClassName("btn")
-    for (var i = 0; i < dark_btns.length ;i++){
-      dark_btns[i].classList.remove("btn-light");
-      dark_btns[i].classList.add("btn-dark");
-    }
-    
-  } else {
-    theme.href = "light.css";
-    let dark_btns = document.getElementsByClassName("btn")
-    for (var i = 0; i < dark_btns.length ;i++){
-      dark_btns[i].classList.remove("btn-dark");
-      dark_btns[i].classList.add("btn-light");
-    }
+ 
+  if (theme == "light") {
+    var remove = "light"
+    var add = "dark"
+    theme = "dark"
+  } else if (theme == "dark") {
+    var add = "light"
+    var remove = "dark"
+    theme = "light"
   }
+
+  let btns = document.getElementsByClassName("btn")
+  for (var i = 0; i < btns.length ;i++){
+    btns[i].classList.remove("btn-" + remove);
+    btns[i].classList.add("btn-" + add);
+  }
+
+  let calculator = document.getElementsByClassName("calculator")
+  for (var i = 0; i < calculator.length ;i++){
+    calculator[i].classList.remove("background-" + remove);
+    calculator[i].classList.add("background-" + add);
+  }
+
+  let results = document.getElementsByClassName("results")
+  for (var i = 0; i < results.length ;i++){
+    results[i].classList.remove("input-" + remove);
+    results[i].classList.add("input-" + add);
+  }
+
+  let actions = document.getElementsByClassName("action-btn")
+  for (var i = 0; i < actions.length ;i++){
+    actions[i].classList.remove("action-" + remove);
+    actions[i].classList.add("action-" + add);
+  }
+
+  
+    
+  
 }

@@ -19,7 +19,7 @@
   <!-- Bootstrap icons -->
   <link rel="stylesheet" href="assets\bootstrap-icons\bootstrap-icons.css">
  
-  <link rel="stylesheet" href="light.css" id="theme" />
+  <link rel="stylesheet" href="style.css" id="theme" />
 
   <!-- Service worker -->
   <script>
@@ -58,10 +58,10 @@
 </head>
 
 <body>
-  <div class="jumbotron vertical-center calculator">
+  <div class="jumbotron vertical-center calculator background-light">
     <div class="container-md" >
       <div class="row" >
-        <div class="col results" >
+        <div class="col results input-light" >
 
           <div class="row my-2"> 
             <div class="col-3 d-grid gap-2 px-2 ">
@@ -141,10 +141,10 @@
               <button class="btn btn-light btn-lg button-OCT" type="button" onclick="putChar('9')">9</button>
             </div>
             <div class="col d-grid gap-2 px-1">
-              <button class="btn btn-light btn-lg action-button" type="button" onclick="clearScreen()">C</button>
+              <button class="btn btn-light btn-lg action-btn action-light" type="button" onclick="clearScreen()">C</button>
             </div> 
             <div class="col d-grid gap-2 px-1">
-              <button class="btn btn-light btn-lg action-button" type="button" onclick="deleteChar()">
+              <button class="btn btn-light btn-lg action-btn action-light" type="button" onclick="deleteChar()">
                 <i class="bi bi-backspace "></i>
               </button>
             </div>
@@ -161,10 +161,10 @@
               <button class="btn btn-light btn-lg button-BIN" type="button" onclick="putChar('6')">6</button>
             </div>
             <div class="col d-grid gap-2 px-1">
-              <button class="btn btn-light btn-lg action-button" type="button" onclick="operation('x')">x</button>
+              <button class="btn btn-light btn-lg action-btn action-light" type="button" onclick="operation('x')">x</button>
             </div>
             <div class="col d-grid gap-2 px-1">
-              <button class="btn btn-light btn-lg action-button" type="button" onclick="operation('/')">/</button>
+              <button class="btn btn-light btn-lg action-btn action-light" type="button" onclick="operation('/')">/</button>
             </div>
           </div>
 
@@ -179,16 +179,16 @@
               <button class="btn btn-light btn-lg button-BIN" type="button" onclick="putChar('3')">3</button>
             </div>
             <div class="col d-grid gap-2 px-1">
-              <button class="btn btn-light btn-lg action-button" type="button" onclick="operation('+')">+</button>
+              <button class="btn btn-light btn-lg action-btn action-light" type="button" onclick="operation('+')">+</button>
             </div>
             <div class="col d-grid gap-2 px-1"> 
-              <button class="btn btn-light btn-lg action-button" type="button" onclick="operation('-')">-</button>
+              <button class="btn btn-light btn-lg action-btn action-light" type="button" onclick="operation('-')">-</button>
             </div>
           </div>
 
           <div class="row py-2 px-1" >
             <div class="col d-grid gap-2 px-1">
-              <button class="btn btn-light btn-lg action-button" type="button" onclick="switchTheme()">
+              <button class="btn btn-light btn-lg action-btn action-light" type="button" onclick="switchTheme()">
                 <i class="bi bi-arrow-down-up"></i>
               </button>
             </div>
@@ -196,13 +196,13 @@
               <button class="btn btn-light btn-lg" type="button" onclick="putChar(0)">0</button>
             </div>
             <div class="col d-grid gap-2 px-1">
-              <button class="btn btn-light btn-lg action-button" type="button" >+-</button>
+              <button class="btn btn-light btn-lg action-btn action-light" type="button" >+-</button>
             </div>
             <div class="col d-grid gap-2 px-1">
               <button class="btn btn-light btn-lg equals-button" type="button" onclick="equals()">=</button>
             </div>
             <div class="col d-grid gap-2 px-1">
-              <button class="btn btn-light btn-lg action-button" type="button">
+              <button class="btn btn-light btn-lg action-btn action-light" type="button">
                 <i class="bi bi-gear"></i>
               </button>
             </div>
