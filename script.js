@@ -381,7 +381,12 @@ function switchTheme() {
     actions[i].classList.add("action-" + add);
   }
 
-  
+  let link = document.getElementsByClassName("a-link")
+  for (var i = 0; i < link.length ;i++){
+    link[i].classList.remove("link-" + remove);
+    link[i].classList.add("link-" + add);
+  }
+
     
   
 }

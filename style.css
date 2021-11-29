@@ -52,7 +52,8 @@ button:disabled {
   background-color: rgb(255, 166, 0) !important;
 }
 
-a { color: inherit; } 
+.link-light { color: inherit; } 
+.link-dark { color: rgb(199, 199, 199); } 
 
 
 
