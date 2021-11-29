@@ -21,28 +21,7 @@
  
   <link rel="stylesheet" href="style.css" id="theme" />
 
-  <!-- Service worker -->
-  <script>
-    // Event listener to load the serviceworker
-    window.addEventListener('load', () => {
-      registerSW();
-    });
- 
-    // Service worker for pwa functionality
-    async function registerSW() {
-      if ('serviceWorker' in navigator) {
-        try {
-          await navigator
-                .serviceWorker
-                .register('serviceworker.js');
-        }
-        catch (e) {
-          console.log('SW registration failed');
-        }
-      }
-    }
-  </script>
-  <!-- Service worker -->
+  
 
    <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BX6V389K3R"></script>
