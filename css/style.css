@@ -1,13 +1,26 @@
 
-.vertical-center {
+.calculator {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  
 
   display: flex;
   align-items: center;
 
 
 
+}
+
+.center-width {
+  width: 400px;
+}
+
+@media (max-width: 425px) {
+  .center-width {
+    width: 100vw;
+  }
+  
 }
 
 .background-light {background-color: #e9ecef;}
