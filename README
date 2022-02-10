@@ -1,6 +1,9 @@
-Hexadecimal, Octal, Decimal and Binary numbers calculator and converter.
+PWA Hexadecimal, Octal, Decimal and Binary numbers calculator and converter.
 See live demo at https://hex-calculator.app
 
-This is meant to run as a PWA App on your smartphone.
+One of the main goals of this project is to make it into a progessive web app were it can function as an offline app on any smartphone.
+Made with Bootstrap 5 for styling, HTML and Javascript for the functionality of the app.
+The interface is mobile first but can still be used perfectly on a desktop or tablet, thanks to a responsive layout.
 
-Original UI inspiration https://dev.to/zxcodes/simple-calculator-with-dark-mode-545c
+
+I took some UI inspiration from here https://dev.to/zxcodes/simple-calculator-with-dark-mode-545c
