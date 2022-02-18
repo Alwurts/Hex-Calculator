@@ -3,7 +3,7 @@
   "short_name": "Hex Calc",
   "start_url": "index.html",
   "scope": ".",
-  "description":"Hexadecimal converter and calculator.",
+  "description":"A Web App that has features to convert between Hexagonal, Octagonal, Decimal and Binary numbers, as well as adding, substracting, multiplying and dividing them. I call it the Hex Caculator.",
 
   "icons": [
     {
